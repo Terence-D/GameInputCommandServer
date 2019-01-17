@@ -18,7 +18,6 @@
         <Label Content="Target" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.907,-2.615" Height="26" Width="43"/>
         <TextBox x:Name="txtTarget" HorizontalAlignment="Left" Height="23" Margin="1,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="48,0,0,10" Width="75" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="btnStart_Click"/>
-        <TextBox x:Name="text" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="69,136,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
