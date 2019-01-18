@@ -26,32 +26,22 @@ namespace GameInputCommandSystem.Controllers
     {
         private KeyMaster km = new KeyMaster();
 
-        // GET api/key/5 
-        public HttpResponseMessage Get(char id)
-        {
-            Command test = new Command();
-            test.Key = id;
-            sendCommand(test);
-            List<Command> responses = new List<Command>();
-            responses.Add(new Command());
-            return Request.CreateResponse(HttpStatusCode.OK, responses, Configuration.Formatters.JsonFormatter);
-        }
+        //// GET api/key/5 
+        //public HttpResponseMessage Get(char id)
+        //{
+        //    Command test = new Command();
+        //    test.Key = id.ToString();
+        //    sendCommand(test);
+        //    List<Command> responses = new List<Command>();
+        //    responses.Add(new Command());
+        //    return Request.CreateResponse(HttpStatusCode.OK, responses, Configuration.Formatters.JsonFormatter);
+        //}
 
         // POST api/key 
         public void Post([FromBody]Command value)
         {
             sendCommand(value);
         }
-
-        //// PUT api/key/5 
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/key/5 
-        //public void Delete(int id)
-        //{
-        //}
 
         private void sendCommand(Command value)
         {
