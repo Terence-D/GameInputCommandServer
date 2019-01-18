@@ -17,7 +17,7 @@ namespace GameInputCommandSystem.Models
 {
     public class Command
     {
-        public char Key { get; set; }
+        public string Key { get; set; }
         public string[] Modifier { get; set; }
     }
 }

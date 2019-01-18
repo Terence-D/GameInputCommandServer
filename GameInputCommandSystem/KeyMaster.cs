@@ -27,9 +27,21 @@ namespace GameInputCommandSystem
             {
                 return false;
             } else {
-                AutoItX.Send("{" + command.Key + " down}"); //hold down the LEFT key
-                AutoItX.Sleep(10); //keep it pressed for 10 milliseconds
+                //if any modifiers, send them first
+                foreach (string modifier in command.Modifier)
+                {
+                    AutoItX.Send("{" + modifier + " down}"); 
+                }
+                //now send the key itself
+                AutoItX.Send("{" + command.Key + " down}"); 
+                //keep everything pressed for 10ms
+                AutoItX.Sleep(10); //
                 AutoItX.Send("{" + command.Key + " up}"); //release the LEFT key
+                //if any modifiers, unset them last
+                foreach (string modifier in command.Modifier)
+                {
+                    AutoItX.Send("{" + modifier + " up}");
+                }
             }
             return true;
         }
