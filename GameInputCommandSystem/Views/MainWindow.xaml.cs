@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrossPlatformAESEncryption.Helper;
+using System;
 using System.Windows;
 
 /**
@@ -56,7 +57,8 @@ namespace GameInputCommandSystem
         private void SaveSettings(string target, string password, int port)
         {
             Properties.Settings.Default.target = target;
-            Properties.Settings.Default.password = password;
+            String encrypted = CryptoHelper.Encrypt(password);
+            Properties.Settings.Default.password = encrypted;
             Properties.Settings.Default.port = port;
             Properties.Settings.Default.Save();
         }

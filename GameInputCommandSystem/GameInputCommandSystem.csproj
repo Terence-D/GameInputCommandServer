@@ -124,6 +124,7 @@
     <Compile Include="KeyMaster.cs" />
     <Compile Include="Models\Command.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="utils\CryptoHelper.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
