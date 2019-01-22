@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameInputCommandSystem.Views"
         mc:Ignorable="d"
-        Title="About" Height="382.23" Width="497.287" ResizeMode="NoResize">
+        Title="About" Height="436.447" Width="497.287" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="16*"/>
@@ -17,7 +17,7 @@
             <ColumnDefinition Width="171*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="GIC Server Version 0.5 (build 1)&#xA;" Margin="10,0,0,0" FontSize="16" Grid.RowSpan="2" HorizontalAlignment="Left" Width="469" FontWeight="Bold" Height="38" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <Label Content="GIC Server" Margin="10,0,0,0" FontSize="16" Grid.RowSpan="2" HorizontalAlignment="Left" Width="96" FontWeight="Bold" Height="38" VerticalAlignment="Top"/>
         <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="469" RenderTransformOrigin="0.5,0.5" Margin="10,91,0,0" Grid.ColumnSpan="3">
             This software makes use of the cross platform encryption library by Mataprasad licensed under the MIT License.  See below for details
         </TextBlock>
@@ -25,15 +25,19 @@
             <Hyperlink  RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/mataprasad/Cross-platform-AES-encryption-128bit/blob/master/LICENSE">License</Hyperlink>
         </TextBlock>
         <Label Content="3rd Party Libraries" Margin="10,60,-14,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Grid.Row="1" Height="26" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Legal" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Grid.Row="1" Width="54" RenderTransformOrigin="-2.468,-0.893" FontSize="14" FontWeight="Bold"/>
-        <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="469" RenderTransformOrigin="0.5,0.5" Margin="10,188,0,0" Grid.ColumnSpan="3">
+        <Label Content="Legal" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" Grid.Row="1" Width="54" RenderTransformOrigin="-2.468,-0.893" FontSize="14" FontWeight="Bold"/>
+        <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="469" RenderTransformOrigin="0.5,0.5" Margin="10,263,0,0" Grid.ColumnSpan="3">
             This software and the GIC Server are open source products used to act as a remote control style device for your PC.  Copyright 2019 Terry Doerksen
         </TextBlock>
-        <TextBlock Grid.ColumnSpan="4" Margin="10,225,-10,0" Grid.Row="1" Height="28" VerticalAlignment="Top">
+        <TextBlock Grid.ColumnSpan="4" Margin="10,300,-10,0" Grid.Row="1" Height="28" VerticalAlignment="Top">
             <Hyperlink NavigateUri="http://www.apache.org/licenses/LICENSE-2.0" RequestNavigate="Hyperlink_RequestNavigate" >Apache 2.0 License</Hyperlink>
         </TextBlock>
-        <Button Content="Ok" HorizontalAlignment="Left" Margin="10,258,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="10,343,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBlock Grid.ColumnSpan="4" Margin="10,30,-10,0" Grid.Row="1" Height="28" VerticalAlignment="Top"><Hyperlink  RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://terence-d.github.io/GameInputCommandServer/"><Run Text="Website"/></Hyperlink></TextBlock>
+        <TextBlock Name="txtVersion" HorizontalAlignment="Left" Margin="111,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.469,0.883" Grid.RowSpan="2" Grid.ColumnSpan="3" Width="370">
+        </TextBlock>
+        <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="469" RenderTransformOrigin="0.5,0.5" Margin="10,158,0,0" Grid.ColumnSpan="3" Text="This software makes use of AutoIt and is used under license.  See below for further details"/>
+        <TextBlock Grid.ColumnSpan="4" Margin="10,193,-10,0" Grid.Row="1" Height="28" VerticalAlignment="Top"><Hyperlink  RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://www.autoitscript.com/autoit3/docs/license.htm"><Run Text="License"/></Hyperlink></TextBlock>
 
     </Grid>
 </Window>

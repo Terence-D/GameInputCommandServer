@@ -23,6 +23,7 @@ namespace GameInputCommandSystem.Views
         public About()
         {
             InitializeComponent();
+            txtVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,15 +36,5 @@ namespace GameInputCommandSystem.Views
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
-
-        //private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-
-        //{
-
-        //    Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-
-        //    e.Handled = true;
-
-        //}
     }
 }
