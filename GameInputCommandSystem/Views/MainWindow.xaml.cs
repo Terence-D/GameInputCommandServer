@@ -1,4 +1,5 @@
 ﻿using CrossPlatformAESEncryption.Helper;
+using GameInputCommandSystem.Views;
 using System;
 using System.Windows;
 
@@ -36,18 +37,23 @@ namespace GameInputCommandSystem
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            int port = Int16.Parse(txtPort.Text);
-            SetApplication(txtTarget.Text);
-            SetPassword(txtPassword.Text);
-            SetPort(port);
-            ToggleServer();
-            SaveSettings(txtTarget.Text, txtPassword.Text, port);
+            if (txtPassword.Password.Length < 6)
+                System.Windows.MessageBox.Show("Please use a password at least 6 characters long");
+            else
+            {
+                int port = Int16.Parse(txtPort.Text);
+                SetApplication(txtTarget.Text);
+                SetPassword(txtPassword.Password);
+                SetPort(port);
+                ToggleServer();
+                SaveSettings(txtTarget.Text, txtPassword.Password, port);
+            }
         }
 
         private void LoadSettings()
         {
             txtTarget.Text = Properties.Settings.Default.target;
-            txtPassword.Text = Properties.Settings.Default.password;
+            txtPassword.Password = CryptoHelper.Decrypt(Properties.Settings.Default.password);
             int port = Properties.Settings.Default.port;
             if (port == 0)
                 port = 8091;
@@ -98,6 +104,12 @@ namespace GameInputCommandSystem
         internal void SetApplication(string text)
         {
             server.Application = text;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            About window = new About();
+            window.Show();
         }
     }
 }
