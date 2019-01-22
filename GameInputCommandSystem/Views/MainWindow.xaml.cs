@@ -38,16 +38,16 @@ namespace GameInputCommandSystem
         {
             int port = Int16.Parse(txtPort.Text);
             SetApplication(txtTarget.Text);
-            SetPassword(txtPassword.Text);
+            SetPassword(txtPassword.Password);
             SetPort(port);
             ToggleServer();
-            SaveSettings(txtTarget.Text, txtPassword.Text, port);
+            SaveSettings(txtTarget.Text, txtPassword.Password, port);
         }
 
         private void LoadSettings()
         {
             txtTarget.Text = Properties.Settings.Default.target;
-            txtPassword.Text = Properties.Settings.Default.password;
+            txtPassword.Password = CryptoHelper.Decrypt(Properties.Settings.Default.password);
             int port = Properties.Settings.Default.port;
             if (port == 0)
                 port = 8091;

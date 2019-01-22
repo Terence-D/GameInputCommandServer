@@ -11,10 +11,10 @@
             <ColumnDefinition Width="118*"/>
             <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="1,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Label Content="Port&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="32"/>
         <TextBox x:Name="txtPort" HorizontalAlignment="Left" Height="23" Margin="1,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="8091" Grid.Column="1"/>
         <Label Content="Password&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="72" Height="26"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="1,45,0,0" PasswordChar="*" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Label Content="Target" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.907,-2.615" Height="26" Width="43"/>
         <TextBox x:Name="txtTarget" HorizontalAlignment="Left" Height="23" Margin="1,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="48,0,0,10" Width="75" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="btnStart_Click"/>
