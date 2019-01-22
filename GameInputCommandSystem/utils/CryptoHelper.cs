@@ -33,11 +33,6 @@ namespace CrossPlatformAESEncryption.Helper
 
         public static string Decrypt(string textToDecrypt)
         {
-            return Decrypt(textToDecrypt, SECRET_KEY);
-        }
-
-        private static string Decrypt(string textToDecrypt, string key)
-        {
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             rijndaelCipher.Mode = CipherMode.CBC;
             rijndaelCipher.Padding = PaddingMode.PKCS7;
@@ -45,7 +40,7 @@ namespace CrossPlatformAESEncryption.Helper
             rijndaelCipher.KeySize = 0x80;
             rijndaelCipher.BlockSize = 0x80;
             byte[] encryptedData = Convert.FromBase64String(textToDecrypt);
-            byte[] pwdBytes = Encoding.UTF8.GetBytes(key);
+            byte[] pwdBytes = Encoding.UTF8.GetBytes(SECRET_KEY);
             byte[] keyBytes = new byte[0x10];
             int len = pwdBytes.Length;
             if (len > keyBytes.Length)
@@ -61,18 +56,13 @@ namespace CrossPlatformAESEncryption.Helper
 
         public static string Encrypt(string textToEncrypt)
         {
-            return Encrypt(textToEncrypt, SECRET_KEY);
-        }
-
-        private static string Encrypt(string textToEncrypt, string key)
-        {
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             rijndaelCipher.Mode = CipherMode.CBC;
             rijndaelCipher.Padding = PaddingMode.PKCS7;
 
             rijndaelCipher.KeySize = 0x80;
             rijndaelCipher.BlockSize = 0x80;
-            byte[] pwdBytes = Encoding.UTF8.GetBytes(key);
+            byte[] pwdBytes = Encoding.UTF8.GetBytes(SECRET_KEY);
             byte[] keyBytes = new byte[0x10];
             int len = pwdBytes.Length;
             if (len > keyBytes.Length)

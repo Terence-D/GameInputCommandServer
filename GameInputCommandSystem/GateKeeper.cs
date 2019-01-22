@@ -1,7 +1,9 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
 
 /**
  Copyright [2019] [Terence Doerksen]
@@ -74,18 +76,25 @@ namespace GameInputCommandSystem
 
         public bool Start()
         {
-            //GICValues.Instance.ActiveProcess = FindProcess();
+            CheckFirewall(Port);
+            string baseAddress = "http://" + "*" + ":" + Port + "/";
 
-            //if (GICValues.Instance.ActiveProcess != null)
+            // Start our OWIN hosting
+            app = WebApp.Start<Startup>(url: baseAddress);
+            client = new HttpClient();
+            return true;
+        }
+
+        private void CheckFirewall(int port)
+        {
+            foreach (IPAddress address in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
             {
-                string baseAddress = "http://" + "*" + ":" + Port + "/";
+                IPEndPoint ipLocalEndPoint = new IPEndPoint(address, Port);
 
-                // Start our OWIN hosting
-                app = WebApp.Start<Startup>(url: baseAddress);
-                client = new HttpClient();
-                return true;
+                TcpListener t = new TcpListener(ipLocalEndPoint);
+                t.Start();
+                t.Stop();
             }
-            //return false;
         }
 
         private Process FindProcess()
