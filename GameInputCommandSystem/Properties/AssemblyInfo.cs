@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("GameInputCommandSystem")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Coffee Shop Studio")]
 [assembly: AssemblyProduct("GameInputCommandSystem")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

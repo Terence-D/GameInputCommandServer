@@ -30,18 +30,19 @@ namespace GameInputCommandSystem
                 //if any modifiers, send them first
                 foreach (string modifier in command.Modifier)
                 {
-                    AutoItX.Send("{" + modifier + " down}"); 
+                    AutoItX.Send("{" + modifier + "DOWN}");
                 }
                 //now send the key itself
-                AutoItX.Send("{" + command.Key + " down}"); 
+                AutoItX.Send("{" + command.Key + " down}");
                 //keep everything pressed for 10ms
-                AutoItX.Sleep(10); //
-                AutoItX.Send("{" + command.Key + " up}"); //release the LEFT key
+                AutoItX.Sleep(10); 
+                AutoItX.Send("{" + command.Key + " up}"); 
                 //if any modifiers, unset them last
                 foreach (string modifier in command.Modifier)
                 {
-                    AutoItX.Send("{" + modifier + " up}");
+                    AutoItX.Send("{" + modifier + "UP}");
                 }
+
             }
             return true;
         }
