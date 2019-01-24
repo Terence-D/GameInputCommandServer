@@ -79,10 +79,16 @@ namespace GameInputCommandSystem
             {
                 server.Stop();
                 isRunning = !isRunning;
+                txtPassword.IsEnabled = true;
+                txtPort.IsEnabled = true;
+                txtTarget.IsEnabled = true;
             }
             else
             {
                 isRunning = server.Start();
+                txtPassword.IsEnabled = false;
+                txtPort.IsEnabled = false;
+                txtTarget.IsEnabled = false;
             }
             toggleText();
         }

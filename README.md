@@ -1,6 +1,10 @@
 # Gaming Input Command Server (Windows)
 Windows server for the Gaming Interface Client
 
+## Guide
+ https://github.com/Terence-D/GameInputCommandServer/wiki
+
+## Description
 This is part of a  two app system that allows the use of a remote device (Tablet or Phone) to provide input into a PC game or application.  This software is the Windows Server and runs on your Windows PC.  It talks to GIC for Android - https://github.com/Terence-D/GamingInterfaceClientAndroid/wiki and will accept commands from it and pass it off to whatever application or game you have set it for.  For example if you play a space simulator, you can add custom buttons for Comms, Warp Drive, Power control, etc and have it accessible at your fingertips without remembering complex keystrokes.
 
 ## Features
