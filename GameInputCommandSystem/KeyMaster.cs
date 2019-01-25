@@ -27,22 +27,24 @@ namespace GameInputCommandSystem
             {
                 return false;
             } else {
-                //if any modifiers, send them first
-                foreach (string modifier in command.Modifier)
-                {
-                    AutoItX.Send("{" + modifier + "DOWN}");
+                if (command.activatorType == Command.KEY_DOWN) {
+                    //if any modifiers, send them first
+                    foreach (string modifier in command.Modifier)
+                    {
+                        AutoItX.Send("{" + modifier + "DOWN}");
+                    }
+                    //now send the key itself
+                    AutoItX.Send("{" + command.Key + " down}");
+                    //keep everything pressed for 10ms
                 }
-                //now send the key itself
-                AutoItX.Send("{" + command.Key + " down}");
-                //keep everything pressed for 10ms
-                AutoItX.Sleep(10); 
-                AutoItX.Send("{" + command.Key + " up}"); 
-                //if any modifiers, unset them last
-                foreach (string modifier in command.Modifier)
-                {
-                    AutoItX.Send("{" + modifier + "UP}");
+                else if (command.activatorType == Command.KEY_UP) {
+                    AutoItX.Send("{" + command.Key + " up}"); 
+                    //if any modifiers, unset them last
+                    foreach (string modifier in command.Modifier)
+                    {
+                        AutoItX.Send("{" + modifier + "UP}");
+                    }
                 }
-
             }
             return true;
         }
