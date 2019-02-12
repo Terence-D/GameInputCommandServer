@@ -24,8 +24,6 @@ namespace GameInputCommandSystem.Controllers
     [Authorize]
     public class KeyController : ApiController
     {
-        private KeyMaster km = new KeyMaster();
-
         //// GET api/key/5 
         //public HttpResponseMessage Get(char id)
         //{
@@ -45,7 +43,7 @@ namespace GameInputCommandSystem.Controllers
 
         private void sendCommand(Command value)
         {
-            km.SendCommand(value);
+            KeyMaster.SendCommand(value);
         }
     }
 }
