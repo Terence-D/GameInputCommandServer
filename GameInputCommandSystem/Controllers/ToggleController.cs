@@ -19,12 +19,12 @@ using System.Web.Http;
 namespace GameInputCommandSystem.Controllers
 {
     [Authorize]
-    public class KeyController : ApiController
+    public class ToggleController : ApiController
     {
-        // POST api/key 
+        // POST api/toggle 
         public void Post([FromBody]Command value)
         {
-            KeyMaster.SendCommand(value, false);
+            KeyMaster.SendCommand(value, true);
         }
     }
 }

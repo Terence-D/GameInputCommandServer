@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -161,6 +161,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\KeyController.cs" />
+    <Compile Include="Controllers\ToggleController.cs" />
     <Compile Include="Controllers\VersionController.cs" />
     <Compile Include="GateKeeper.cs" />
     <Compile Include="GICValues.cs" />

@@ -24,7 +24,7 @@ namespace GameInputCommandSystem
     {
         static volatile object locker = new Object();
 
-        public static bool SendCommand(Command command)
+        public static bool SendCommand(Command command, bool quickCommand)
         {
             lock (locker)
             {
@@ -55,9 +55,19 @@ namespace GameInputCommandSystem
                         }
                         //now send the key itself
                         AutoItX.Send("{" + command.Key + " down}");
-                        //keep everything pressed for 10ms
+                        if (quickCommand)
+                        {
+                            //keep everything pressed for 10ms
+                            System.Threading.Thread.Sleep(10);
+                            AutoItX.Send("{" + command.Key + " up}");
+                            //if any modifiers, unset them last
+                            foreach (string modifier in command.Modifier)
+                            {
+                                AutoItX.Send("{" + modifier + "UP}");
+                            }
+                        }
                     }
-                    else if (command.activatorType == Command.KEY_UP)
+                    else if (command.activatorType == Command.KEY_UP && !quickCommand )
                     {
                         AutoItX.Send("{" + command.Key + " up}");
                         //if any modifiers, unset them last
