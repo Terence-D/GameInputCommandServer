@@ -1,5 +1,7 @@
 ﻿using AutoIt;
 using GameInputCommandSystem.Models;
+using System;
+using System.Windows;
 
 /**
  Copyright [2019] [Terence Doerksen]
@@ -18,35 +20,66 @@ using GameInputCommandSystem.Models;
  */
 namespace GameInputCommandSystem
 {
-    class KeyMaster
+    public static class KeyMaster
     {
-        public bool SendCommand(Command command)
+        static volatile object locker = new Object();
+
+        public static bool SendCommand(Command command, bool quickCommand)
         {
-            int rv = AutoItX.WinActivate(GICValues.Instance.Application);
-            if (rv == 0)
+            lock (locker)
             {
-                return false;
-            } else {
-                if (command.activatorType == Command.KEY_DOWN) {
-                    //if any modifiers, send them first
-                    foreach (string modifier in command.Modifier)
-                    {
-                        AutoItX.Send("{" + modifier + "DOWN}");
-                    }
-                    //now send the key itself
-                    AutoItX.Send("{" + command.Key + " down}");
-                    //keep everything pressed for 10ms
+                //long sec = DateTime.Now.Second;
+                //Console.WriteLine("starting command for " + command.Key + " " + sec);
+                int rv = 0;
+                try
+                {
+                    rv = AutoItX.WinWaitActive(GICValues.Instance.Application);
                 }
-                else if (command.activatorType == Command.KEY_UP) {
-                    AutoItX.Send("{" + command.Key + " up}"); 
-                    //if any modifiers, unset them last
-                    foreach (string modifier in command.Modifier)
-                    {
-                        AutoItX.Send("{" + modifier + "UP}");
-                    }
+                catch (Exception e)
+                {
+                    //MessageBox.Show(e.Message);
+                    return false;
                 }
+                if (rv == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    if (command.activatorType == Command.KEY_DOWN)
+                    {
+                        //if any modifiers, send them first
+                        foreach (string modifier in command.Modifier)
+                        {
+                            AutoItX.Send("{" + modifier + "DOWN}");
+                        }
+                        //now send the key itself
+                        AutoItX.Send("{" + command.Key + " down}");
+                        if (quickCommand)
+                        {
+                            //keep everything pressed for 10ms
+                            System.Threading.Thread.Sleep(10);
+                            AutoItX.Send("{" + command.Key + " up}");
+                            //if any modifiers, unset them last
+                            foreach (string modifier in command.Modifier)
+                            {
+                                AutoItX.Send("{" + modifier + "UP}");
+                            }
+                        }
+                    }
+                    else if (command.activatorType == Command.KEY_UP && !quickCommand )
+                    {
+                        AutoItX.Send("{" + command.Key + " up}");
+                        //if any modifiers, unset them last
+                        foreach (string modifier in command.Modifier)
+                        {
+                            AutoItX.Send("{" + modifier + "UP}");
+                        }
+                    }
+                    //Console.WriteLine("ending command for " + command.Key + " " + sec);
+                }
+                return true;
             }
-            return true;
         }
     }
 }
