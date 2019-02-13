@@ -38,11 +38,6 @@ namespace GameInputCommandSystem.Controllers
         // POST api/key 
         public void Post([FromBody]Command value)
         {
-            sendCommand(value);
-        }
-
-        private void sendCommand(Command value)
-        {
             KeyMaster.SendCommand(value);
         }
     }
