@@ -28,8 +28,8 @@ namespace GameInputCommandSystem
         {
             lock (locker)
             {
-                long sec = DateTime.Now.Second;
-                Console.WriteLine("starting command for " + command.Key + " " + sec);
+                //long sec = DateTime.Now.Second;
+                //Console.WriteLine("starting command for " + command.Key + " " + sec);
                 int rv = 0;
                 try
                 {
@@ -76,7 +76,7 @@ namespace GameInputCommandSystem
                             AutoItX.Send("{" + modifier + "UP}");
                         }
                     }
-                    Console.WriteLine("ending command for " + command.Key + " " + sec);
+                    //Console.WriteLine("ending command for " + command.Key + " " + sec);
                 }
                 return true;
             }
