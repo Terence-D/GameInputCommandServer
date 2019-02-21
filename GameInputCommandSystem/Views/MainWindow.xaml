@@ -16,7 +16,7 @@
         <Label Content="Password&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="72" Height="26"/>
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="1,45,0,0" PasswordChar="*" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Label Content="Target" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.907,-2.615" Height="26" Width="43"/>
-        <TextBox x:Name="txtTarget" HorizontalAlignment="Left" Height="23" Margin="1,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <ComboBox x:Name="txtTarget" HorizontalAlignment="Left" Height="23" Margin="1,75,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEditable="True"/>
         <Button x:Name="btnStart" Content="Start" Margin="10,103,33,0" Click="btnStart_Click" Height="22" VerticalAlignment="Top"/>
         <Button Content="About" Grid.Column="1" HorizontalAlignment="Left" Margin="39,104,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
