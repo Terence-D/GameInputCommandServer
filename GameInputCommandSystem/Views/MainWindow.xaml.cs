@@ -55,7 +55,10 @@ namespace GameInputCommandSystem
 
         private void LoadSettings()
         {
+            txtTarget.Items.Add("Star Citizen");
             txtTarget.Text = Properties.Settings.Default.target;
+            if (txtTarget.Text == "")
+                txtTarget.Text = "Star Citizen";
             if (Properties.Settings.Default.password.Length > 5)
                 txtPassword.Password = CryptoHelper.Decrypt(Properties.Settings.Default.password);
             int port = Properties.Settings.Default.port;
