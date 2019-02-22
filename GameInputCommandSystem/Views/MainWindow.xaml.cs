@@ -56,6 +56,7 @@ namespace GameInputCommandSystem
         private void LoadSettings()
         {
             txtTarget.Items.Add("Star Citizen");
+            txtTarget.Items.Add("Elite - Dangerous (CLIENT)");
             txtTarget.Text = Properties.Settings.Default.target;
             if (txtTarget.Text == "")
                 txtTarget.Text = "Star Citizen";
