@@ -17,8 +17,8 @@ namespace GameInputCommandSystem.Controllers
         public HttpResponseMessage Get()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            string version = fileVersionInfo.ProductVersion;
+            //FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = "1.3.0.0";// fileVersionInfo.ProductVersion;
 
             return Request.CreateResponse(HttpStatusCode.OK, version, Configuration.Formatters.JsonFormatter);
         }
