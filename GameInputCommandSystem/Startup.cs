@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using Swashbuckle.Application;
 using System.Collections.Generic;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
@@ -40,6 +41,13 @@ namespace GameInputCommandSystem
             );
             appBuilder.UseBasicAuthentication(new BasicAuthenticationOptions("SecureApi",
                 async (username, password) => await Authenticate(username, password)));
+
+            //Tell swagger to generate documentation based on the XML doc file output from msbuild
+            config.EnableSwagger(c =>
+            {
+                c.IncludeXmlComments("GameInputCommandSystem.xml");
+                c.SingleApiVersion("1.0", "Owin Swashbuckle Demo");
+            }).EnableSwaggerUi();
 
             appBuilder.UseWebApi(config);
         }
