@@ -18,10 +18,16 @@ using System.Web.Http;
  */
 namespace GameInputCommandSystem.Controllers
 {
+    /**
+     * Used for quick toggle commands 
+     * */
     [Authorize]
     public class ToggleController : ApiController
     {
-        // POST api/toggle 
+        /**
+         * Client will send in a specific key command along with modifiers and the event type.  
+         * The server will process both the key down and up commands.
+         * */
         public void Post([FromBody]Command value)
         {
             KeyMaster.SendCommand(value, true);

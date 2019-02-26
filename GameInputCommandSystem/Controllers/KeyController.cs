@@ -18,10 +18,15 @@ using System.Web.Http;
  */
 namespace GameInputCommandSystem.Controllers
 {
+    /**
+     * Used for commands related to a standard key up/down event
+     * */
     [Authorize]
     public class KeyController : ApiController
     {
-        // POST api/key 
+        /**
+         * Client will send in a specific key command along with modifiers and the event type - key down or key up
+         * */
         public void Post([FromBody]Command value)
         {
             KeyMaster.SendCommand(value, false);
