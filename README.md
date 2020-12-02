@@ -1,3 +1,8 @@
+# NEW LINK New Version 2.0 alpha - NEW LINK
+https://github.com/Terence-D/GamingInterfaceCommandServer 
+
+Started a new repo as this is a full rewrite - same license and same features as the old verison, just switching to a multi project Net Core project to eventually make it cross platform (half of it technically already is in its current form)
+
 # Gaming Input Command Server (Windows)
 Windows server for the Gaming Interface Client
 
